@@ -27,8 +27,9 @@ class _LoginWidgetState extends State<LoginWidget> {
     super.initState();
     _model = createModel(context, () => LoginModel());
 
-    _model.txtUsuarioController = TextEditingController();
-    _model.txtClaveController = TextEditingController();
+    _model.txtUsuarioController ??= TextEditingController();
+    _model.txtClaveController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
